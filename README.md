@@ -1,7 +1,6 @@
 # Real-Time Object Detection with YOLO and OpenCV
 
-![Project Demo](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW1uMXJlemZ5bHlkMmozZ3hpZWowemZ6a25uNnZ5cW5sb3E4aGcyZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/L18eMUGDk3vcwOPUGw/giphy.gif)
-_**(Note: This is a placeholder GIF. You can create your own using a tool like ScreenToGif to showcase your project in action!)**_
+![Project Demo](./mediaoutput.jpg)
 
 ---
 
@@ -84,7 +83,7 @@ pip install -r requirements.txt
 Once the setup is complete, run the application with the following command:
 
 ```bash
-python main.py
+python bina_task1.ipynb
 ```
 
 - A window will appear showing your live webcam feed with object detections.
@@ -100,4 +99,5 @@ To further enhance this project, the following features could be implemented:
 - **Interactive Confidence Trackbar:** Add an OpenCV trackbar to the display window, allowing the user to adjust the confidence threshold in real-time without restarting the script.
 - **Object Counting:** Implement a counter to display the number of instances for specific object classes (e.g., "Persons: 3", "Cars: 1").
 - **Custom Model Integration:** Allow the user to specify a path to a different pretrained or custom-trained YOLO model via a command-line argument.
+
 - **Output Recording:** Add a feature to save the processed video feed with the bounding boxes to a file.

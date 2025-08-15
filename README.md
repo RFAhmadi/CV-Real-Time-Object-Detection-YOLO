@@ -4,6 +4,66 @@
 
 ---
 
+سلام!
+در این پروژه، هدف این بود که یک تمرین تشخیص اشیاء در لحظه (Real-Time) بسازم که بتواند روی وبکم اجرا بشود، با مدل از پیش آموزش‌دیده کار کند، و به طور میانگین حداقل 20 FPS بدهد
+.
+
+مراحل توسعه 🔧
+
+ایده‌پردازی و تست اولیه
+برای شروع، نسخه‌های اولیه پروژه را روی Kaggle و Google Colab پیاده‌سازی کردم. این محیط‌ها کمک کردن تا بدون درگیر شدن با پیکربندی سیستم لوکال، سریعا چند مدل مختلف رو بررسی کنم.
+
+انتخاب مدل
+
+دلیل انتخاب این مدل:
+
+یولو YOLO (You Only Look Once): سرعت بالا، معماری سبک، مناسب برای Real-Time، ولی در بعضی موارد دقت پایین‌تر از مدل‌های سنگین‌تر مثل Faster R-CNN.
+
+تشخیص یکباره SSD (Single Shot Detector): تعادلی بین سرعت و دقت، اما در رزولوشن پایین کمی ضعف نشون میده.
+
+شبکه پیچشی Faster R-CNN: دقت خیلی بالا، اما به خاطر سرعت کم اصلاً مناسب Real-Time نبود.
+
+→ درنهایت YOLO بود، چون به نظرم برای این تسک بهترین توازن بین سرعت و دقت رو داشت.
+
+راه‌اندازی محیط توسعه
+
+یک محیط مجازی (venv) روی سیستم ساختم تا وابستگی‌ها و نسخه‌های پکیج‌ها جدا از بقیه پروژه‌ها باشن.
+
+پروژه را به صورت مرحله‌ای روی گیت لوکال مدیریت کردم (commitهای مرتب بعد از هر تغییر بزرگ). اینطوری مسیر توسعه کاملا قابل رهگیری شد.
+
+پیاده‌سازی و بهینه‌سازی
+
+اتصال مستقیم به وبکم و گرفتن استریم زنده.
+
+اضافه کردن Confidence Threshold تا فقط پیش‌بینی‌های معتبر نمایش داده بشن.
+
+محاسبه‌ی FPS برای اندازه‌گیری عملکرد مدل.
+
+تست چندین بار روی سخت‌افزار لوکال و مقایسه‌ی سرعت/دقت.
+
+بهبودهای اضافه (Bonus)
+
+امکان تنظیم threshold به صورت داینامیک.
+
+شمارش اشیا مشابه
+
+نتیجه 🎯
+
+در نهایت پروژه‌:
+
+روی وبکم در زمان واقعی اجرا میشه.
+
+بین سرعت و دقت تعادل خوبی داره.
+
+ساختار کد قابل فهم است، با مستندسازی برای هر بخش.
+
+مسیر توسعه از محیط‌های ابری (Colab/Kaggle) تا اجرای پایدار روی سیستم شخصی طی شد.
+
+این پروژه برای من ترکیبی از تجربه عملی و مرور مفاهیم پایه بود؛ چیزی که بهم نشون داد چطور میشه در زمان محدود یک پروژه کاربردی و واقعی رو تحویل داد.
+
+
+
+
 ## 📋 Project Overview
 
 This project is a high-performance, real-time object detection application developed as part of an internship selection task. The application leverages a live webcam feed, identifies objects using the state-of-the-art YOLOv8 model and YOLO11 models, and overlays bounding boxes and class labels on the video stream. It is optimized for both CPU and GPU execution, consistently achieving frame rates well above the 20 FPS requirement.
@@ -43,8 +103,8 @@ Follow these instructions to set up and run the project on your local machine.
 
 **1. Clone the repository:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-cd YOUR_REPOSITORY_NAME
+git clone https://github.com/RFAhmadi/CV-Real-Time-Object-Detection-YOLO.git
+cd CV-Real-Time-Object-Detection-YOLO
 ```
 
 **2. Create a Python virtual environment (Recommended):**
@@ -96,8 +156,8 @@ python bina_task1.ipynb
 
 To further enhance this project, the following features could be implemented:
 
-- **Interactive Confidence Trackbar:** Add an OpenCV trackbar to the display window, allowing the user to adjust the confidence threshold in real-time without restarting the script.
-- **Object Counting:** Implement a counter to display the number of instances for specific object classes (e.g., "Persons: 3", "Cars: 1").
 - **Custom Model Integration:** Allow the user to specify a path to a different pretrained or custom-trained YOLO model via a command-line argument.
 
 - **Output Recording:** Add a feature to save the processed video feed with the bounding boxes to a file.
+- **Have an IDEA?** I'll be happy if you pull or send a message.
+
